@@ -70,9 +70,6 @@ import api from '../services/axios'
 
 const username = ref('')
 const password = ref('')
-const name = ref('')
-const email = ref('')
-const phone = ref('')
 
 const error = ref('')
 const showPassword = ref(false)
@@ -82,10 +79,7 @@ const handleLogin = async () => {
   try {
     const response = await api.post('/login', {
       username: username.value,
-      password: password.value,
-      name: name.value,
-      email: email.value,
-      phone: phone.value
+      password: password.value
     })
     localStorage.setItem('token', response.data.data.token)
     localStorage.setItem('user', JSON.stringify(response.data.data.admin))

@@ -1,8 +1,6 @@
 <template>
   <header class="w-full bg-white shadow px-6 py-4 flex justify-between items-center">
-    <!-- Logo hanya tampil di HP, pageTitle tampil di md ke atas -->
     <div>
-      <!-- Logo UN: hanya muncul di mobile -->
       <RouterLink
         to="/dashboard"
         class="block md:hidden text-red-700 hover:text-red-500 transition text-xl font-bold"
@@ -10,13 +8,11 @@
         <font-awesome-icon :icon="['fas', 'users-gear']" /> UN
       </RouterLink>
 
-      <!-- Judul halaman: hanya muncul di desktop -->
       <h2 class="hidden md:block text-2xl font-bold text-gray-800">
         {{ pageTitle }}
       </h2>
     </div>
 
-    <!-- Username + Dropdown -->
     <div class="flex items-center">
       <span class="text-gray-700 font-medium px-1">{{ username }}</span>
       <div class="relative" @click="toggleDropdown">
@@ -55,7 +51,7 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
-import api from '../services/axios' // sesuaikan path jika berbeda
+import api from '../services/axios' 
 
 const dropdownOpen = ref(false)
 const username = ref('')
